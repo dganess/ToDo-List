@@ -8,7 +8,7 @@
     <select name="tab" id="list">
         %for row in rows:
             #%for col in row:
-                <option value="{{row}}">{{row}}</option>
+                <option value="{{row}}">{{row[0]}}</option>
             #%end
         %end
     </select>

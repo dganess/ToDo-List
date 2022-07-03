@@ -31,7 +31,7 @@ def edit_item(no):
 
     if request.GET.save:
         edit = request.GET.task.strip()              #returns task from edit template and stores in variable 'edit' to update Database#
-        status = request.GET.status.strip()         # returns status from edit template and stores in variable 'status' to update Database
+        status = request.GET.status.strip()         # returns  status from edit template and stores in variable 'status' to update Database
 
         if status == 'open':                    
             status = 1                              # stores appropriate value to update status value in Database
@@ -167,6 +167,7 @@ def show_all_items():
     c.execute("SELECT id, task FROM todo")
     result = c.fetchall()             # fetches all items in Todo database and stores data in variable 'result'
     c.close()
+    print(result)
     #print(result)
     unzippedResult = zip(*result)
     #for data in unzippedResult:
@@ -183,6 +184,14 @@ def delete_item_found():
         id = returned_item[1]
     else:
         id = returned_item[1] + returned_item[2]
+    
+    #Update ID in table
+    #extract rows from table
+    #result = extracted rows
+    i=1
+    for row in result[0]:
+        #update Id = i in row[0]
+        #i += 1
 
     
     #return str(id)

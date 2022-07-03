@@ -6,6 +6,12 @@
   %for col in row:
     <td>{{col}}</td>
   %end
+    <td>
+      <!--generating edit and delete buttons with the table-->
+      <form method = GET id ='edit_button_form'>
+        
+    </td>
+
   </tr>
 %end
 </table>
