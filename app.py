@@ -197,7 +197,7 @@ def delete_item_found():
     #return str(id)
     #redirect('/delete/{}'.format(delete_id))   # redirects to delete function passing delelte_id
     #delete_id = request.POST.get('todoID','').strip()
-    redirect('/delete/{}'.format(id)) 
+        redirect('/delete/{}'.format(id)) 
 
 #------------------------------------------------------------------------------------------------------------
 # Display Error Message - if Item does not Exist
