@@ -1,4 +1,4 @@
-%#template to generate a HTML table from a list of tuples (or list of lists, or tuple of tuples or ...)
+ %#template to generate a HTML table from a list of tuples (or list of lists, or tuple of tuples or ...)
 <h1>All items are as follows:</h1>
 <table border="5">
 %for row in rows:
@@ -6,11 +6,6 @@
   %for col in row:
     <td>{{col}}</td>
   %end
-    <td>
-      <!--generating edit and delete buttons with the table-->
-      <form method = GET id ='edit_button_form'>
-        
-    </td>
 
   </tr>
 %end
@@ -28,7 +23,7 @@
 <form action = "/find_item" method="POST" >                     
     <label for="no">What numbered item would you like to edit?>
     <input name="todoID" type ="number">
-    <input type="submit" name = "save"value = "Query">
+    <input type="submit" name = "save" value = "Edit">
 </form>
 
 

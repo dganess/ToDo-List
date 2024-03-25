@@ -6,7 +6,7 @@ from bottle import run, route, template, request, view, debug, redirect, error
 @view('index')
 def index():
     pass
-# heloo world
+
 #------------------------------------------------------------------------------------------------------------
 # Find Item to Edit Block
 #------------------------------------------------------------------------------------------------------------
@@ -24,11 +24,12 @@ def show_all_items():
 @route('/find_item', method = 'POST')   # returns edit item ID and stores in variable edit_id
 def edit_item_found():
     edit_id = request.POST.get('todoID','').strip()
+    print(edit_id)
     redirect('/edit/{}'.format(edit_id))
 
 @route('/edit/<no:int>')
 def edit_item(no):
-
+    print('hello')
     if request.GET.save:
         edit = request.GET.task.strip()              #returns task from edit template and stores in variable 'edit' to update Database#
         status = request.GET.status.strip()         # returns  status from edit template and stores in variable 'status' to update Database
@@ -117,20 +118,20 @@ def todo_list():
     result = c.fetchall()
     c.close()
     #return str(result)
-    output = template('make_table.tpl', rows=result)
+    output = template('make_table.tpl', rows=result, sample_text = 'Open Items')
     return output
 #------------------------------------------------------------------------------------------------------------
 # Displays all items from Database
 #------------------------------------------------------------------------------------------------------------
 @route('/todo_all')
-def todo_list_all():
+def freddy_list_all():
     conn = sqlite3.connect('todo.db')
     c = conn.cursor()
     c.execute("SELECT id, task, status FROM todo") # queries all fields from database and stores as LIST of tuples in variable result
     result = c.fetchall()
     c.close()
     print(result)
-    output = template('make_table.tpl', rows=result)
+    output = template('make_table.tpl', rows=result, sample_text = 'Complete Items')
     return output
 
 #------------------------------------------------------------------------------------------------------------
@@ -249,5 +250,6 @@ def mistake403(code):
 def mistake404(code):
     return 'Sorry, this page does not exist!'
 
+#main routine
 
-run() #host='0.0.0.0', port = 8080, reloader = True, debug = True)
+run(host='127.0.0.1', port = 8020, reloader = True, debug = True)
