@@ -2,6 +2,8 @@
 import sqlite3
 from bottle import run, route, template, request, view, debug, redirect, error
 #test commit
+
+
 @route('/')
 @view('index')
 def index():
@@ -252,4 +254,4 @@ def mistake404(code):
 
 #main routine
 
-run(host='127.0.0.1', port = 8020, reloader = True, debug = True)
+run(host='0.0.0.0', port = 8020, reloader = True, debug = True)
